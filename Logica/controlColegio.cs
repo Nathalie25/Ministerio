@@ -17,18 +17,16 @@ namespace Logica
             var datos = from a in contex.Colegio
                         select new
                         {
-                            //Id = a.IdColegio,
+                            Codigo = a.IdColegio,
                             Sie = a.SIE,
                             Nombre = a.Nombre,
                             Resolucion = a.Resolucion,
                             FechaResolucion = a.FechaResolucion,
-                            Telefono =a.Telefono,
                             Direccion =a.Direccion,
                             Detalle = a.Detalle,
                             Distrito = a.Distrito,
                             Turno = a.Turno,
                             Tipo = a.TipoColegio,
-                            Logo  = a.IdLogo,
                      
                         };
             return datos.ToList();

@@ -34,9 +34,7 @@ namespace Logica
 
         public void Nuevo(int CI, string nombre, string apellidopaterno, string apellidomaterno, string correo, string direccion, int telefono, int rude, int promedio, int estado)
         {
-            //int nuevoID = contex.Persona.Max(a => a.IdPersona) + 1;
             Persona tuplaPersona = new Persona();
-            //tuplaPersona.IdPersona = nuevoID;
             tuplaPersona.CiPersona = CI;
             tuplaPersona.Nombre = nombre;
             tuplaPersona.ApellidoPaterno = apellidopaterno;
@@ -46,6 +44,7 @@ namespace Logica
             tuplaPersona.Telefono = telefono;
             contex.Persona.Add(tuplaPersona);
             contex.SaveChanges();
+
             Estudiante tuplaEstudiante = new Estudiante();
             tuplaEstudiante.IdEstudiante = tuplaPersona.IdPersona;
             tuplaEstudiante.RUDE = rude;
@@ -57,14 +56,19 @@ namespace Logica
 
         public void ELiminar(int codPersona)
         {
+            // busca el estudiante 
             Estudiante tuplaEstudiante = contex.Estudiante.Find(codPersona);
+            // cambio es estado en ELIMINADO
             tuplaEstudiante.Estado = "2";
+            // guardar cambios
             contex.SaveChanges();
         }
 
         public void Editar(int codPersona, int cI, string nombre, string apellidopaterno, string apellidomaterno, string correo, string direccion, int telefono, int rude, int promedio, int estado)
         {
+            // busca el estudiante 
             Persona tuplaPersona = contex.Persona.Find(codPersona);
+            // edita
             tuplaPersona.Nombre = nombre;
             tuplaPersona.ApellidoPaterno = apellidopaterno;
             tuplaPersona.ApellidoMaterno = apellidomaterno;
@@ -75,6 +79,7 @@ namespace Logica
             tuplaPersona.Estudiante.RUDE = rude;
             tuplaPersona.Estudiante.Promedio = promedio;
             tuplaPersona.Estudiante.Estado = estado.ToString();
+            // guardar cambios
             contex.SaveChanges();
         }
     }

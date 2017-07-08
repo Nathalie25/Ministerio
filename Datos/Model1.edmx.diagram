@@ -5,40 +5,40 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="7f6e9e5b5f8d4308ac9aceab90f3cb5f" Name="Diagram1">
-        <EntityTypeShape EntityType="dbMinisterioModel.Cargo" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbMinisterioModel.Colegio" Width="1.5" PointX="16.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbMinisterioModel.CuentaUsuario" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbMinisterioModel.Departamento" Width="1.5" PointX="7.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbMinisterioModel.Diploma" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbMinisterioModel.Distrito" Width="1.5" PointX="14.5" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbMinisterioModel.Estudiante" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbMinisterioModel.FuncionarioSeduca" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbMinisterioModel.Gestion" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbMinisterioModel.Legalizacion" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbMinisterioModel.Logo" Width="1.5" PointX="14.5" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbMinisterioModel.Municipio" Width="1.5" PointX="12.25" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbMinisterioModel.Persona" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbMinisterioModel.Privilegio" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbMinisterioModel.Provincia" Width="1.5" PointX="10" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbMinisterioModel.TipoColegio" Width="1.5" PointX="14.5" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbMinisterioModel.Turno" Width="1.5" PointX="14.5" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbMinisterioModel.PersonalColegio" Width="1.5" PointX="8" PointY="7.875" IsExpanded="true" />
-        <AssociationConnector Association="dbMinisterioModel.FK__Funcionar__IdCar__4CA06362" ManuallyRouted="false" />
-        <AssociationConnector Association="dbMinisterioModel.FK__PersonalC__IdCar__4F7CD00D" ManuallyRouted="false" />
-        <AssociationConnector Association="dbMinisterioModel.FK__Colegio__IdDistr__38996AB5" ManuallyRouted="false" />
-        <AssociationConnector Association="dbMinisterioModel.FK__Colegio__IdLogo__3A81B327" ManuallyRouted="false" />
-        <AssociationConnector Association="dbMinisterioModel.FK__Colegio__IdTipoC__398D8EEE" ManuallyRouted="false" />
-        <AssociationConnector Association="dbMinisterioModel.FK__Colegio__IdTurno__3B75D760" ManuallyRouted="false" />
-        <AssociationConnector Association="dbMinisterioModel.FK__CuentaUsu__IdPer__4222D4EF" ManuallyRouted="false" />
-        <AssociationConnector Association="dbMinisterioModel.FK__Privilegi__IdCue__44FF419A" ManuallyRouted="false" />
-        <AssociationConnector Association="dbMinisterioModel.FK__Provincia__IdDep__2D27B809" ManuallyRouted="false" />
-        <AssociationConnector Association="dbMinisterioModel.FK__Diploma__IdEstud__52593CB8" ManuallyRouted="false" />
-        <AssociationConnector Association="dbMinisterioModel.FK__Distrito__IdMuni__32E0915F" ManuallyRouted="false" />
-        <AssociationConnector Association="dbMinisterioModel.FK__Estudiant__IdEst__48CFD27E" ManuallyRouted="false" />
-        <AssociationConnector Association="dbMinisterioModel.FK__Legalizac__IdEst__5535A963" ManuallyRouted="false" />
-        <AssociationConnector Association="dbMinisterioModel.FK__Funcionar__IdFun__4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="dbMinisterioModel.FK__Municipio__IdPro__300424B4" ManuallyRouted="false" />
-        <AssociationConnector Association="dbMinisterioModel.FK__PersonalC__IdPes__4E88ABD4" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="dbMinisterioModel.Cargo" Width="1.5" PointX="0.75" PointY="3.625" />
+        <EntityTypeShape EntityType="dbMinisterioModel.Colegio" Width="1.5" PointX="16.75" PointY="1" />
+        <EntityTypeShape EntityType="dbMinisterioModel.CuentaUsuario" Width="1.5" PointX="3" PointY="4.25" />
+        <EntityTypeShape EntityType="dbMinisterioModel.Departamento" Width="1.5" PointX="7.75" PointY="2.25" />
+        <EntityTypeShape EntityType="dbMinisterioModel.Diploma" Width="1.5" PointX="5.25" PointY="12.875" />
+        <EntityTypeShape EntityType="dbMinisterioModel.Distrito" Width="1.5" PointX="14.5" PointY="2.125" />
+        <EntityTypeShape EntityType="dbMinisterioModel.Estudiante" Width="1.5" PointX="3" PointY="14.5" />
+        <EntityTypeShape EntityType="dbMinisterioModel.FuncionarioSeduca" Width="1.5" PointX="3" PointY="10.625" />
+        <EntityTypeShape EntityType="dbMinisterioModel.Gestion" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="dbMinisterioModel.Legalizacion" Width="1.5" PointX="5.25" PointY="15.625" />
+        <EntityTypeShape EntityType="dbMinisterioModel.Logo" Width="1.5" PointX="14.5" PointY="8.25" />
+        <EntityTypeShape EntityType="dbMinisterioModel.Municipio" Width="1.5" PointX="12.25" PointY="2.125" />
+        <EntityTypeShape EntityType="dbMinisterioModel.Persona" Width="1.5" PointX="0.75" PointY="7" />
+        <EntityTypeShape EntityType="dbMinisterioModel.Privilegio" Width="1.5" PointX="5.25" PointY="4.375" />
+        <EntityTypeShape EntityType="dbMinisterioModel.Provincia" Width="1.5" PointX="10" PointY="2.125" />
+        <EntityTypeShape EntityType="dbMinisterioModel.TipoColegio" Width="1.5" PointX="14.5" PointY="11.125" />
+        <EntityTypeShape EntityType="dbMinisterioModel.Turno" Width="1.5" PointX="14.5" PointY="5.75" />
+        <EntityTypeShape EntityType="dbMinisterioModel.PersonalColegio" Width="1.5" PointX="3" PointY="7.625" />
+        <AssociationConnector Association="dbMinisterioModel.FK__Funcionar__IdCar__4CA06362" />
+        <AssociationConnector Association="dbMinisterioModel.FK__PersonalC__IdCar__4F7CD00D" />
+        <AssociationConnector Association="dbMinisterioModel.FK__Colegio__IdDistr__38996AB5" />
+        <AssociationConnector Association="dbMinisterioModel.FK__Colegio__IdLogo__3A81B327" />
+        <AssociationConnector Association="dbMinisterioModel.FK__Colegio__IdTipoC__398D8EEE" />
+        <AssociationConnector Association="dbMinisterioModel.FK__Colegio__IdTurno__3B75D760" />
+        <AssociationConnector Association="dbMinisterioModel.FK__CuentaUsu__IdPer__4222D4EF" />
+        <AssociationConnector Association="dbMinisterioModel.FK__Privilegi__IdCue__44FF419A" />
+        <AssociationConnector Association="dbMinisterioModel.FK__Provincia__IdDep__2D27B809" />
+        <AssociationConnector Association="dbMinisterioModel.FK__Diploma__IdEstud__52593CB8" />
+        <AssociationConnector Association="dbMinisterioModel.FK__Distrito__IdMuni__32E0915F" />
+        <AssociationConnector Association="dbMinisterioModel.FK__Estudiant__IdEst__48CFD27E" />
+        <AssociationConnector Association="dbMinisterioModel.FK__Legalizac__IdEst__5535A963" />
+        <AssociationConnector Association="dbMinisterioModel.FK__Funcionar__IdFun__4BAC3F29" />
+        <AssociationConnector Association="dbMinisterioModel.FK__Municipio__IdPro__300424B4" />
+        <AssociationConnector Association="dbMinisterioModel.FK__PersonalC__IdPes__4E88ABD4" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

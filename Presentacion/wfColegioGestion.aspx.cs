@@ -28,9 +28,9 @@ namespace Presentacion
             int telefono = int.Parse(txbTelefono.Text);
             string direccion = txbDireccion.Text;
             string detalle = txbDetalle.Text;
-           int idDistrito = int.Parse( ddlDistrito.SelectedValue);
-            int idTurno = int.Parse( ddlTurno.SelectedValue);
-            int idTipo = int.Parse( ddlTipo.SelectedValue);
+            int idDistrito = 1;//int.Parse( ddlDistrito.SelectedValue);
+            int idTurno = 1;/// int.Parse( ddlTurno.SelectedValue);
+            int idTipo = 1;//int.Parse( ddlTipo.SelectedValue);
             int estado = 1;
 
             if (accion == "Nuevo")

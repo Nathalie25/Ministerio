@@ -15,10 +15,15 @@ namespace Presentacion
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //obtiene la bandera
             string accion = (string)Session["accion"];
+            //pregunta silabandera esta en modo EDITAR
             if (accion == "Editar" && !IsPostBack)
             {
+                //obtiene el ID persona
                 int codPersona = (int)Session["codPersona"];
+
+                //obtener datos
                 txbCI.Text = objControlEstudiante.ObtenerEstudiante(codPersona).Persona.CiPersona.ToString();
                 txbNombre.Text = objControlEstudiante.ObtenerEstudiante(codPersona).Persona.Nombre;
                 txbPaterno.Text = objControlEstudiante.ObtenerEstudiante(codPersona).Persona.ApellidoPaterno;
@@ -33,7 +38,9 @@ namespace Presentacion
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            // obtener la bandera
             string accion = (string)Session["accion"];
+            // obtengo los datos
             int CI = int.Parse(txbCI.Text);
             string nombre = txbNombre.Text;
             string apellidopaterno = txbPaterno.Text;
@@ -45,15 +52,21 @@ namespace Presentacion
             int promedio = int.Parse(txbPromedio.Text);
             int estado = 1;
 
+            // pregunto si la bandera esta para editar o nuevo
             if (accion == "Nuevo")
             {
+                // invoco elmetodo NUEVO mandandoletodos los datos
                 objControlEstudiante.Nuevo(CI, nombre, apellidopaterno, apellidomaterno, correo, direccion, Telefono, Rude, promedio, estado);
+                // ir al otroformulario
                 Response.Redirect("wfEstudiante");
             }
             else if (accion == "Editar")
             {
+                // obtener elID del estudiante
                 int codPersona = (int)Session["codPersona"];
+                // invoco elmetodo EDITAR mandandoletodos los datos mas el ID del estudiante que voy a editar
                 objControlEstudiante.Editar(codPersona, CI, nombre, apellidopaterno, apellidomaterno, correo, direccion, Telefono, Rude, promedio, estado);
+                //ir al otro formulario
                 Response.Redirect("wfEstudiante");
             }
         }

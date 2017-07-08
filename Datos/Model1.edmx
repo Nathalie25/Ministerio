@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="dbMinisterioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="dbMinisterioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cargo">
           <Key>
             <PropertyRef Name="IdCargo" />
@@ -18,7 +18,7 @@
           <Key>
             <PropertyRef Name="IdColegio" />
           </Key>
-          <Property Name="IdColegio" Type="int" Nullable="false" />
+          <Property Name="IdColegio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SIE" Type="int" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="300" Nullable="false" />
           <Property Name="Resolucion" Type="varchar" MaxLength="300" Nullable="false" />
@@ -467,85 +467,168 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
             <End Role="Provincia" EntitySet="Provincia" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbMinisterioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dbMinisterioEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cargo" EntityType="dbMinisterioModel.Cargo" />
+          <EntitySet Name="Colegio" EntityType="dbMinisterioModel.Colegio" />
+          <EntitySet Name="CuentaUsuario" EntityType="dbMinisterioModel.CuentaUsuario" />
+          <EntitySet Name="Departamento" EntityType="dbMinisterioModel.Departamento" />
+          <EntitySet Name="Diploma" EntityType="dbMinisterioModel.Diploma" />
+          <EntitySet Name="Distrito" EntityType="dbMinisterioModel.Distrito" />
+          <EntitySet Name="Estudiante" EntityType="dbMinisterioModel.Estudiante" />
+          <EntitySet Name="FuncionarioSeduca" EntityType="dbMinisterioModel.FuncionarioSeduca" />
+          <EntitySet Name="Gestion" EntityType="dbMinisterioModel.Gestion" />
+          <EntitySet Name="Legalizacion" EntityType="dbMinisterioModel.Legalizacion" />
+          <EntitySet Name="Logo" EntityType="dbMinisterioModel.Logo" />
+          <EntitySet Name="Municipio" EntityType="dbMinisterioModel.Municipio" />
+          <EntitySet Name="Persona" EntityType="dbMinisterioModel.Persona" />
+          <EntitySet Name="Privilegio" EntityType="dbMinisterioModel.Privilegio" />
+          <EntitySet Name="Provincia" EntityType="dbMinisterioModel.Provincia" />
+          <EntitySet Name="TipoColegio" EntityType="dbMinisterioModel.TipoColegio" />
+          <EntitySet Name="Turno" EntityType="dbMinisterioModel.Turno" />
+          <EntitySet Name="PersonalColegio" EntityType="dbMinisterioModel.PersonalColegio" />
+          <AssociationSet Name="FK__Funcionar__IdCar__4CA06362" Association="dbMinisterioModel.FK__Funcionar__IdCar__4CA06362">
+            <End Role="Cargo" EntitySet="Cargo" />
+            <End Role="FuncionarioSeduca" EntitySet="FuncionarioSeduca" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PersonalC__IdCar__4F7CD00D" Association="dbMinisterioModel.FK__PersonalC__IdCar__4F7CD00D">
+            <End Role="Cargo" EntitySet="Cargo" />
+            <End Role="PersonalColegio" EntitySet="PersonalColegio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Colegio__IdDistr__38996AB5" Association="dbMinisterioModel.FK__Colegio__IdDistr__38996AB5">
+            <End Role="Distrito" EntitySet="Distrito" />
+            <End Role="Colegio" EntitySet="Colegio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Colegio__IdLogo__3A81B327" Association="dbMinisterioModel.FK__Colegio__IdLogo__3A81B327">
+            <End Role="Logo" EntitySet="Logo" />
+            <End Role="Colegio" EntitySet="Colegio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Colegio__IdTipoC__398D8EEE" Association="dbMinisterioModel.FK__Colegio__IdTipoC__398D8EEE">
+            <End Role="TipoColegio" EntitySet="TipoColegio" />
+            <End Role="Colegio" EntitySet="Colegio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Colegio__IdTurno__3B75D760" Association="dbMinisterioModel.FK__Colegio__IdTurno__3B75D760">
+            <End Role="Turno" EntitySet="Turno" />
+            <End Role="Colegio" EntitySet="Colegio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CuentaUsu__IdPer__4222D4EF" Association="dbMinisterioModel.FK__CuentaUsu__IdPer__4222D4EF">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="CuentaUsuario" EntitySet="CuentaUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Privilegi__IdCue__44FF419A" Association="dbMinisterioModel.FK__Privilegi__IdCue__44FF419A">
+            <End Role="CuentaUsuario" EntitySet="CuentaUsuario" />
+            <End Role="Privilegio" EntitySet="Privilegio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Provincia__IdDep__2D27B809" Association="dbMinisterioModel.FK__Provincia__IdDep__2D27B809">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="Provincia" EntitySet="Provincia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diploma__IdEstud__52593CB8" Association="dbMinisterioModel.FK__Diploma__IdEstud__52593CB8">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="Diploma" EntitySet="Diploma" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Distrito__IdMuni__32E0915F" Association="dbMinisterioModel.FK__Distrito__IdMuni__32E0915F">
+            <End Role="Municipio" EntitySet="Municipio" />
+            <End Role="Distrito" EntitySet="Distrito" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estudiant__IdEst__48CFD27E" Association="dbMinisterioModel.FK__Estudiant__IdEst__48CFD27E">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Estudiante" EntitySet="Estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Legalizac__IdEst__5535A963" Association="dbMinisterioModel.FK__Legalizac__IdEst__5535A963">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="Legalizacion" EntitySet="Legalizacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Funcionar__IdFun__4BAC3F29" Association="dbMinisterioModel.FK__Funcionar__IdFun__4BAC3F29">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="FuncionarioSeduca" EntitySet="FuncionarioSeduca" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Municipio__IdPro__300424B4" Association="dbMinisterioModel.FK__Municipio__IdPro__300424B4">
+            <End Role="Provincia" EntitySet="Provincia" />
+            <End Role="Municipio" EntitySet="Municipio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PersonalC__IdPes__4E88ABD4" Association="dbMinisterioModel.FK__PersonalC__IdPes__4E88ABD4">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="PersonalColegio" EntitySet="PersonalColegio" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Cargo">
           <Key>
             <PropertyRef Name="IdCargo" />
           </Key>
           <Property Name="IdCargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Detalle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Detalle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="FuncionarioSeduca" Relationship="Self.FK__Funcionar__IdCar__4CA06362" FromRole="Cargo" ToRole="FuncionarioSeduca" />
-          <NavigationProperty Name="PersonalColegio" Relationship="Self.FK__PersonalC__IdCar__4F7CD00D" FromRole="Cargo" ToRole="PersonalColegio" />
+          <NavigationProperty Name="FuncionarioSeduca" Relationship="dbMinisterioModel.FK__Funcionar__IdCar__4CA06362" FromRole="Cargo" ToRole="FuncionarioSeduca" />
+          <NavigationProperty Name="PersonalColegio" Relationship="dbMinisterioModel.FK__PersonalC__IdCar__4F7CD00D" FromRole="Cargo" ToRole="PersonalColegio" />
         </EntityType>
         <EntityType Name="Colegio">
           <Key>
             <PropertyRef Name="IdColegio" />
           </Key>
-          <Property Name="IdColegio" Type="Int32" Nullable="false" />
+          <Property Name="IdColegio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SIE" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Resolucion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Resolucion" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="FechaResolucion" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Telefono" Type="Int32" Nullable="false" />
-          <Property Name="Direccion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Detalle" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Detalle" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="IdDistrito" Type="Int32" />
           <Property Name="IdTipoColegio" Type="Int32" />
           <Property Name="IdLogo" Type="Int32" />
           <Property Name="IdTurno" Type="Int32" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Distrito" Relationship="Self.FK__Colegio__IdDistr__38996AB5" FromRole="Colegio" ToRole="Distrito" />
-          <NavigationProperty Name="Logo" Relationship="Self.FK__Colegio__IdLogo__3A81B327" FromRole="Colegio" ToRole="Logo" />
-          <NavigationProperty Name="TipoColegio" Relationship="Self.FK__Colegio__IdTipoC__398D8EEE" FromRole="Colegio" ToRole="TipoColegio" />
-          <NavigationProperty Name="Turno" Relationship="Self.FK__Colegio__IdTurno__3B75D760" FromRole="Colegio" ToRole="Turno" />
+          <NavigationProperty Name="Distrito" Relationship="dbMinisterioModel.FK__Colegio__IdDistr__38996AB5" FromRole="Colegio" ToRole="Distrito" />
+          <NavigationProperty Name="Logo" Relationship="dbMinisterioModel.FK__Colegio__IdLogo__3A81B327" FromRole="Colegio" ToRole="Logo" />
+          <NavigationProperty Name="TipoColegio" Relationship="dbMinisterioModel.FK__Colegio__IdTipoC__398D8EEE" FromRole="Colegio" ToRole="TipoColegio" />
+          <NavigationProperty Name="Turno" Relationship="dbMinisterioModel.FK__Colegio__IdTurno__3B75D760" FromRole="Colegio" ToRole="Turno" />
         </EntityType>
         <EntityType Name="CuentaUsuario">
           <Key>
             <PropertyRef Name="IdCuentaUsuario" />
           </Key>
           <Property Name="IdCuentaUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Usuario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Contrasenia" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usuario" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Contrasenia" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="IdPersona" Type="Int32" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Persona" Relationship="Self.FK__CuentaUsu__IdPer__4222D4EF" FromRole="CuentaUsuario" ToRole="Persona" />
-          <NavigationProperty Name="Privilegio" Relationship="Self.FK__Privilegi__IdCue__44FF419A" FromRole="CuentaUsuario" ToRole="Privilegio" />
+          <NavigationProperty Name="Persona" Relationship="dbMinisterioModel.FK__CuentaUsu__IdPer__4222D4EF" FromRole="CuentaUsuario" ToRole="Persona" />
+          <NavigationProperty Name="Privilegio" Relationship="dbMinisterioModel.FK__Privilegi__IdCue__44FF419A" FromRole="CuentaUsuario" ToRole="Privilegio" />
         </EntityType>
         <EntityType Name="Departamento">
           <Key>
             <PropertyRef Name="IdDepartamento" />
           </Key>
           <Property Name="IdDepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Provincia" Relationship="Self.FK__Provincia__IdDep__2D27B809" FromRole="Departamento" ToRole="Provincia" />
+          <NavigationProperty Name="Provincia" Relationship="dbMinisterioModel.FK__Provincia__IdDep__2D27B809" FromRole="Departamento" ToRole="Provincia" />
         </EntityType>
         <EntityType Name="Diploma">
           <Key>
             <PropertyRef Name="IdDiploma" />
           </Key>
           <Property Name="IdDiploma" Type="Int32" Nullable="false" />
-          <Property Name="Detalle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Detalle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="IdEstudiante" Type="Int32" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Estudiante" Relationship="Self.FK__Diploma__IdEstud__52593CB8" FromRole="Diploma" ToRole="Estudiante" />
+          <NavigationProperty Name="Estudiante" Relationship="dbMinisterioModel.FK__Diploma__IdEstud__52593CB8" FromRole="Diploma" ToRole="Estudiante" />
         </EntityType>
         <EntityType Name="Distrito">
           <Key>
             <PropertyRef Name="IdDistrito" />
           </Key>
           <Property Name="IdDistrito" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IdMunicipio" Type="Int32" Nullable="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Colegio" Relationship="Self.FK__Colegio__IdDistr__38996AB5" FromRole="Distrito" ToRole="Colegio" />
-          <NavigationProperty Name="Municipio" Relationship="Self.FK__Distrito__IdMuni__32E0915F" FromRole="Distrito" ToRole="Municipio" />
+          <NavigationProperty Name="Colegio" Relationship="dbMinisterioModel.FK__Colegio__IdDistr__38996AB5" FromRole="Distrito" ToRole="Colegio" />
+          <NavigationProperty Name="Municipio" Relationship="dbMinisterioModel.FK__Distrito__IdMuni__32E0915F" FromRole="Distrito" ToRole="Municipio" />
         </EntityType>
         <EntityType Name="Estudiante">
           <Key>
@@ -554,10 +637,10 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           <Property Name="IdEstudiante" Type="Int32" Nullable="false" />
           <Property Name="RUDE" Type="Int32" Nullable="false" />
           <Property Name="Promedio" Type="Int32" Nullable="false" />
-          <Property Name="Estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Diploma" Relationship="Self.FK__Diploma__IdEstud__52593CB8" FromRole="Estudiante" ToRole="Diploma" />
-          <NavigationProperty Name="Persona" Relationship="Self.FK__Estudiant__IdEst__48CFD27E" FromRole="Estudiante" ToRole="Persona" />
-          <NavigationProperty Name="Legalizacion" Relationship="Self.FK__Legalizac__IdEst__5535A963" FromRole="Estudiante" ToRole="Legalizacion" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Diploma" Relationship="dbMinisterioModel.FK__Diploma__IdEstud__52593CB8" FromRole="Estudiante" ToRole="Diploma" />
+          <NavigationProperty Name="Persona" Relationship="dbMinisterioModel.FK__Estudiant__IdEst__48CFD27E" FromRole="Estudiante" ToRole="Persona" />
+          <NavigationProperty Name="Legalizacion" Relationship="dbMinisterioModel.FK__Legalizac__IdEst__5535A963" FromRole="Estudiante" ToRole="Legalizacion" />
         </EntityType>
         <EntityType Name="FuncionarioSeduca">
           <Key>
@@ -566,8 +649,8 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           <Property Name="IdFuncionario" Type="Int32" Nullable="false" />
           <Property Name="IdCargo" Type="Int32" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cargo" Relationship="Self.FK__Funcionar__IdCar__4CA06362" FromRole="FuncionarioSeduca" ToRole="Cargo" />
-          <NavigationProperty Name="Persona" Relationship="Self.FK__Funcionar__IdFun__4BAC3F29" FromRole="FuncionarioSeduca" ToRole="Persona" />
+          <NavigationProperty Name="Cargo" Relationship="dbMinisterioModel.FK__Funcionar__IdCar__4CA06362" FromRole="FuncionarioSeduca" ToRole="Cargo" />
+          <NavigationProperty Name="Persona" Relationship="dbMinisterioModel.FK__Funcionar__IdFun__4BAC3F29" FromRole="FuncionarioSeduca" ToRole="Persona" />
         </EntityType>
         <EntityType Name="Gestion">
           <Key>
@@ -586,33 +669,33 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           <Property Name="FechaSolicitud" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="FechaVerificacion" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Cantidad" Type="Int64" Nullable="false" />
-          <Property Name="Detalle" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FirmaDigital" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Detalle" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FirmaDigital" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="IdEstudiante" Type="Int32" Nullable="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Estudiante" Relationship="Self.FK__Legalizac__IdEst__5535A963" FromRole="Legalizacion" ToRole="Estudiante" />
+          <NavigationProperty Name="Estudiante" Relationship="dbMinisterioModel.FK__Legalizac__IdEst__5535A963" FromRole="Legalizacion" ToRole="Estudiante" />
         </EntityType>
         <EntityType Name="Logo">
           <Key>
             <PropertyRef Name="IdLogo" />
           </Key>
           <Property Name="IdLogo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Src" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Src" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Ancho" Type="Int32" Nullable="false" />
           <Property Name="Alto" Type="Int32" Nullable="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Colegio" Relationship="Self.FK__Colegio__IdLogo__3A81B327" FromRole="Logo" ToRole="Colegio" />
+          <NavigationProperty Name="Colegio" Relationship="dbMinisterioModel.FK__Colegio__IdLogo__3A81B327" FromRole="Logo" ToRole="Colegio" />
         </EntityType>
         <EntityType Name="Municipio">
           <Key>
             <PropertyRef Name="IdMunicipio" />
           </Key>
           <Property Name="IdMunicipio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IdProvincia" Type="Int32" Nullable="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Distrito" Relationship="Self.FK__Distrito__IdMuni__32E0915F" FromRole="Municipio" ToRole="Distrito" />
-          <NavigationProperty Name="Provincia" Relationship="Self.FK__Municipio__IdPro__300424B4" FromRole="Municipio" ToRole="Provincia" />
+          <NavigationProperty Name="Distrito" Relationship="dbMinisterioModel.FK__Distrito__IdMuni__32E0915F" FromRole="Municipio" ToRole="Distrito" />
+          <NavigationProperty Name="Provincia" Relationship="dbMinisterioModel.FK__Municipio__IdPro__300424B4" FromRole="Municipio" ToRole="Provincia" />
         </EntityType>
         <EntityType Name="Persona">
           <Key>
@@ -620,57 +703,57 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           </Key>
           <Property Name="IdPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CiPersona" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ApellidoPaterno" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ApellidoMaterno" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Correo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Direccion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoPaterno" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoMaterno" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="Telefono" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CuentaUsuario" Relationship="Self.FK__CuentaUsu__IdPer__4222D4EF" FromRole="Persona" ToRole="CuentaUsuario" />
-          <NavigationProperty Name="Estudiante" Relationship="Self.FK__Estudiant__IdEst__48CFD27E" FromRole="Persona" ToRole="Estudiante" />
-          <NavigationProperty Name="FuncionarioSeduca" Relationship="Self.FK__Funcionar__IdFun__4BAC3F29" FromRole="Persona" ToRole="FuncionarioSeduca" />
-          <NavigationProperty Name="PersonalColegio" Relationship="Self.FK__PersonalC__IdPes__4E88ABD4" FromRole="Persona" ToRole="PersonalColegio" />
+          <NavigationProperty Name="CuentaUsuario" Relationship="dbMinisterioModel.FK__CuentaUsu__IdPer__4222D4EF" FromRole="Persona" ToRole="CuentaUsuario" />
+          <NavigationProperty Name="Estudiante" Relationship="dbMinisterioModel.FK__Estudiant__IdEst__48CFD27E" FromRole="Persona" ToRole="Estudiante" />
+          <NavigationProperty Name="FuncionarioSeduca" Relationship="dbMinisterioModel.FK__Funcionar__IdFun__4BAC3F29" FromRole="Persona" ToRole="FuncionarioSeduca" />
+          <NavigationProperty Name="PersonalColegio" Relationship="dbMinisterioModel.FK__PersonalC__IdPes__4E88ABD4" FromRole="Persona" ToRole="PersonalColegio" />
         </EntityType>
         <EntityType Name="Privilegio">
           <Key>
             <PropertyRef Name="IdPrivilegio" />
           </Key>
           <Property Name="IdPrivilegio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Tipo" Type="Int32" Nullable="false" />
           <Property Name="IdCuenta" Type="Int32" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CuentaUsuario" Relationship="Self.FK__Privilegi__IdCue__44FF419A" FromRole="Privilegio" ToRole="CuentaUsuario" />
+          <NavigationProperty Name="CuentaUsuario" Relationship="dbMinisterioModel.FK__Privilegi__IdCue__44FF419A" FromRole="Privilegio" ToRole="CuentaUsuario" />
         </EntityType>
         <EntityType Name="Provincia">
           <Key>
             <PropertyRef Name="IdProvincia" />
           </Key>
           <Property Name="IdProvincia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Departamento" Relationship="Self.FK__Provincia__IdDep__2D27B809" FromRole="Provincia" ToRole="Departamento" />
-          <NavigationProperty Name="Municipio" Relationship="Self.FK__Municipio__IdPro__300424B4" FromRole="Provincia" ToRole="Municipio" />
+          <NavigationProperty Name="Departamento" Relationship="dbMinisterioModel.FK__Provincia__IdDep__2D27B809" FromRole="Provincia" ToRole="Departamento" />
+          <NavigationProperty Name="Municipio" Relationship="dbMinisterioModel.FK__Municipio__IdPro__300424B4" FromRole="Provincia" ToRole="Municipio" />
         </EntityType>
         <EntityType Name="TipoColegio">
           <Key>
             <PropertyRef Name="IdTipoColegio" />
           </Key>
           <Property Name="IdTipoColegio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NombreTipoColegio" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Detalle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreTipoColegio" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Detalle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Colegio" Relationship="Self.FK__Colegio__IdTipoC__398D8EEE" FromRole="TipoColegio" ToRole="Colegio" />
+          <NavigationProperty Name="Colegio" Relationship="dbMinisterioModel.FK__Colegio__IdTipoC__398D8EEE" FromRole="TipoColegio" ToRole="Colegio" />
         </EntityType>
         <EntityType Name="Turno">
           <Key>
             <PropertyRef Name="IdTurno" />
           </Key>
           <Property Name="IdTurno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NombreTurno" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreTurno" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Colegio" Relationship="Self.FK__Colegio__IdTurno__3B75D760" FromRole="Turno" ToRole="Colegio" />
+          <NavigationProperty Name="Colegio" Relationship="dbMinisterioModel.FK__Colegio__IdTurno__3B75D760" FromRole="Turno" ToRole="Colegio" />
         </EntityType>
         <EntityType Name="PersonalColegio">
           <Key>
@@ -679,12 +762,12 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           <Property Name="IdPesonalColegio" Type="Int32" />
           <Property Name="IdCargo" Type="Int32" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cargo" Relationship="Self.FK__PersonalC__IdCar__4F7CD00D" FromRole="PersonalColegio" ToRole="Cargo" />
-          <NavigationProperty Name="Persona" Relationship="Self.FK__PersonalC__IdPes__4E88ABD4" FromRole="PersonalColegio" ToRole="Persona" />
+          <NavigationProperty Name="Cargo" Relationship="dbMinisterioModel.FK__PersonalC__IdCar__4F7CD00D" FromRole="PersonalColegio" ToRole="Cargo" />
+          <NavigationProperty Name="Persona" Relationship="dbMinisterioModel.FK__PersonalC__IdPes__4E88ABD4" FromRole="PersonalColegio" ToRole="Persona" />
         </EntityType>
         <Association Name="FK__Funcionar__IdCar__4CA06362">
-          <End Role="Cargo" Type="Self.Cargo" Multiplicity="0..1" />
-          <End Role="FuncionarioSeduca" Type="Self.FuncionarioSeduca" Multiplicity="*" />
+          <End Type="dbMinisterioModel.Cargo" Role="Cargo" Multiplicity="0..1" />
+          <End Type="dbMinisterioModel.FuncionarioSeduca" Role="FuncionarioSeduca" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cargo">
               <PropertyRef Name="IdCargo" />
@@ -695,8 +778,8 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__PersonalC__IdCar__4F7CD00D">
-          <End Role="Cargo" Type="Self.Cargo" Multiplicity="0..1" />
-          <End Role="PersonalColegio" Type="Self.PersonalColegio" Multiplicity="*" />
+          <End Type="dbMinisterioModel.Cargo" Role="Cargo" Multiplicity="0..1" />
+          <End Type="dbMinisterioModel.PersonalColegio" Role="PersonalColegio" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cargo">
               <PropertyRef Name="IdCargo" />
@@ -707,8 +790,8 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Colegio__IdDistr__38996AB5">
-          <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
-          <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
+          <End Type="dbMinisterioModel.Distrito" Role="Distrito" Multiplicity="0..1" />
+          <End Type="dbMinisterioModel.Colegio" Role="Colegio" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Distrito">
               <PropertyRef Name="IdDistrito" />
@@ -719,8 +802,8 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Colegio__IdLogo__3A81B327">
-          <End Role="Logo" Type="Self.Logo" Multiplicity="0..1" />
-          <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
+          <End Type="dbMinisterioModel.Logo" Role="Logo" Multiplicity="0..1" />
+          <End Type="dbMinisterioModel.Colegio" Role="Colegio" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Logo">
               <PropertyRef Name="IdLogo" />
@@ -731,8 +814,8 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Colegio__IdTipoC__398D8EEE">
-          <End Role="TipoColegio" Type="Self.TipoColegio" Multiplicity="0..1" />
-          <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
+          <End Type="dbMinisterioModel.TipoColegio" Role="TipoColegio" Multiplicity="0..1" />
+          <End Type="dbMinisterioModel.Colegio" Role="Colegio" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TipoColegio">
               <PropertyRef Name="IdTipoColegio" />
@@ -743,8 +826,8 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Colegio__IdTurno__3B75D760">
-          <End Role="Turno" Type="Self.Turno" Multiplicity="0..1" />
-          <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
+          <End Type="dbMinisterioModel.Turno" Role="Turno" Multiplicity="0..1" />
+          <End Type="dbMinisterioModel.Colegio" Role="Colegio" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Turno">
               <PropertyRef Name="IdTurno" />
@@ -755,8 +838,8 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__CuentaUsu__IdPer__4222D4EF">
-          <End Role="Persona" Type="Self.Persona" Multiplicity="0..1" />
-          <End Role="CuentaUsuario" Type="Self.CuentaUsuario" Multiplicity="*" />
+          <End Type="dbMinisterioModel.Persona" Role="Persona" Multiplicity="0..1" />
+          <End Type="dbMinisterioModel.CuentaUsuario" Role="CuentaUsuario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Persona">
               <PropertyRef Name="IdPersona" />
@@ -767,8 +850,8 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Privilegi__IdCue__44FF419A">
-          <End Role="CuentaUsuario" Type="Self.CuentaUsuario" Multiplicity="0..1" />
-          <End Role="Privilegio" Type="Self.Privilegio" Multiplicity="*" />
+          <End Type="dbMinisterioModel.CuentaUsuario" Role="CuentaUsuario" Multiplicity="0..1" />
+          <End Type="dbMinisterioModel.Privilegio" Role="Privilegio" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CuentaUsuario">
               <PropertyRef Name="IdCuentaUsuario" />
@@ -779,8 +862,8 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Provincia__IdDep__2D27B809">
-          <End Role="Departamento" Type="Self.Departamento" Multiplicity="1" />
-          <End Role="Provincia" Type="Self.Provincia" Multiplicity="*" />
+          <End Type="dbMinisterioModel.Departamento" Role="Departamento" Multiplicity="1" />
+          <End Type="dbMinisterioModel.Provincia" Role="Provincia" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Departamento">
               <PropertyRef Name="IdDepartamento" />
@@ -791,8 +874,8 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Diploma__IdEstud__52593CB8">
-          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="0..1" />
-          <End Role="Diploma" Type="Self.Diploma" Multiplicity="*" />
+          <End Type="dbMinisterioModel.Estudiante" Role="Estudiante" Multiplicity="0..1" />
+          <End Type="dbMinisterioModel.Diploma" Role="Diploma" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Estudiante">
               <PropertyRef Name="IdEstudiante" />
@@ -803,8 +886,8 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Distrito__IdMuni__32E0915F">
-          <End Role="Municipio" Type="Self.Municipio" Multiplicity="1" />
-          <End Role="Distrito" Type="Self.Distrito" Multiplicity="*" />
+          <End Type="dbMinisterioModel.Municipio" Role="Municipio" Multiplicity="1" />
+          <End Type="dbMinisterioModel.Distrito" Role="Distrito" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Municipio">
               <PropertyRef Name="IdMunicipio" />
@@ -815,8 +898,8 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Estudiant__IdEst__48CFD27E">
-          <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
-          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="0..1" />
+          <End Type="dbMinisterioModel.Persona" Role="Persona" Multiplicity="1" />
+          <End Type="dbMinisterioModel.Estudiante" Role="Estudiante" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Persona">
               <PropertyRef Name="IdPersona" />
@@ -827,8 +910,8 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Legalizac__IdEst__5535A963">
-          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
-          <End Role="Legalizacion" Type="Self.Legalizacion" Multiplicity="*" />
+          <End Type="dbMinisterioModel.Estudiante" Role="Estudiante" Multiplicity="1" />
+          <End Type="dbMinisterioModel.Legalizacion" Role="Legalizacion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Estudiante">
               <PropertyRef Name="IdEstudiante" />
@@ -839,8 +922,8 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Funcionar__IdFun__4BAC3F29">
-          <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
-          <End Role="FuncionarioSeduca" Type="Self.FuncionarioSeduca" Multiplicity="0..1" />
+          <End Type="dbMinisterioModel.Persona" Role="Persona" Multiplicity="1" />
+          <End Type="dbMinisterioModel.FuncionarioSeduca" Role="FuncionarioSeduca" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Persona">
               <PropertyRef Name="IdPersona" />
@@ -851,8 +934,8 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Municipio__IdPro__300424B4">
-          <End Role="Provincia" Type="Self.Provincia" Multiplicity="1" />
-          <End Role="Municipio" Type="Self.Municipio" Multiplicity="*" />
+          <End Type="dbMinisterioModel.Provincia" Role="Provincia" Multiplicity="1" />
+          <End Type="dbMinisterioModel.Municipio" Role="Municipio" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Provincia">
               <PropertyRef Name="IdProvincia" />
@@ -863,8 +946,8 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__PersonalC__IdPes__4E88ABD4">
-          <End Role="Persona" Type="Self.Persona" Multiplicity="0..1" />
-          <End Role="PersonalColegio" Type="Self.PersonalColegio" Multiplicity="*" />
+          <End Type="dbMinisterioModel.Persona" Role="Persona" Multiplicity="0..1" />
+          <End Type="dbMinisterioModel.PersonalColegio" Role="PersonalColegio" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Persona">
               <PropertyRef Name="IdPersona" />
@@ -874,90 +957,6 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="dbMinisterioEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Cargo" EntityType="Self.Cargo" />
-          <EntitySet Name="Colegio" EntityType="Self.Colegio" />
-          <EntitySet Name="CuentaUsuario" EntityType="Self.CuentaUsuario" />
-          <EntitySet Name="Departamento" EntityType="Self.Departamento" />
-          <EntitySet Name="Diploma" EntityType="Self.Diploma" />
-          <EntitySet Name="Distrito" EntityType="Self.Distrito" />
-          <EntitySet Name="Estudiante" EntityType="Self.Estudiante" />
-          <EntitySet Name="FuncionarioSeduca" EntityType="Self.FuncionarioSeduca" />
-          <EntitySet Name="Gestion" EntityType="Self.Gestion" />
-          <EntitySet Name="Legalizacion" EntityType="Self.Legalizacion" />
-          <EntitySet Name="Logo" EntityType="Self.Logo" />
-          <EntitySet Name="Municipio" EntityType="Self.Municipio" />
-          <EntitySet Name="Persona" EntityType="Self.Persona" />
-          <EntitySet Name="Privilegio" EntityType="Self.Privilegio" />
-          <EntitySet Name="Provincia" EntityType="Self.Provincia" />
-          <EntitySet Name="TipoColegio" EntityType="Self.TipoColegio" />
-          <EntitySet Name="Turno" EntityType="Self.Turno" />
-          <EntitySet Name="PersonalColegio" EntityType="Self.PersonalColegio" />
-          <AssociationSet Name="FK__Funcionar__IdCar__4CA06362" Association="Self.FK__Funcionar__IdCar__4CA06362">
-            <End Role="Cargo" EntitySet="Cargo" />
-            <End Role="FuncionarioSeduca" EntitySet="FuncionarioSeduca" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PersonalC__IdCar__4F7CD00D" Association="Self.FK__PersonalC__IdCar__4F7CD00D">
-            <End Role="Cargo" EntitySet="Cargo" />
-            <End Role="PersonalColegio" EntitySet="PersonalColegio" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Colegio__IdDistr__38996AB5" Association="Self.FK__Colegio__IdDistr__38996AB5">
-            <End Role="Distrito" EntitySet="Distrito" />
-            <End Role="Colegio" EntitySet="Colegio" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Colegio__IdLogo__3A81B327" Association="Self.FK__Colegio__IdLogo__3A81B327">
-            <End Role="Logo" EntitySet="Logo" />
-            <End Role="Colegio" EntitySet="Colegio" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Colegio__IdTipoC__398D8EEE" Association="Self.FK__Colegio__IdTipoC__398D8EEE">
-            <End Role="TipoColegio" EntitySet="TipoColegio" />
-            <End Role="Colegio" EntitySet="Colegio" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Colegio__IdTurno__3B75D760" Association="Self.FK__Colegio__IdTurno__3B75D760">
-            <End Role="Turno" EntitySet="Turno" />
-            <End Role="Colegio" EntitySet="Colegio" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CuentaUsu__IdPer__4222D4EF" Association="Self.FK__CuentaUsu__IdPer__4222D4EF">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="CuentaUsuario" EntitySet="CuentaUsuario" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Privilegi__IdCue__44FF419A" Association="Self.FK__Privilegi__IdCue__44FF419A">
-            <End Role="CuentaUsuario" EntitySet="CuentaUsuario" />
-            <End Role="Privilegio" EntitySet="Privilegio" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Provincia__IdDep__2D27B809" Association="Self.FK__Provincia__IdDep__2D27B809">
-            <End Role="Departamento" EntitySet="Departamento" />
-            <End Role="Provincia" EntitySet="Provincia" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Diploma__IdEstud__52593CB8" Association="Self.FK__Diploma__IdEstud__52593CB8">
-            <End Role="Estudiante" EntitySet="Estudiante" />
-            <End Role="Diploma" EntitySet="Diploma" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Distrito__IdMuni__32E0915F" Association="Self.FK__Distrito__IdMuni__32E0915F">
-            <End Role="Municipio" EntitySet="Municipio" />
-            <End Role="Distrito" EntitySet="Distrito" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Estudiant__IdEst__48CFD27E" Association="Self.FK__Estudiant__IdEst__48CFD27E">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Estudiante" EntitySet="Estudiante" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Legalizac__IdEst__5535A963" Association="Self.FK__Legalizac__IdEst__5535A963">
-            <End Role="Estudiante" EntitySet="Estudiante" />
-            <End Role="Legalizacion" EntitySet="Legalizacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Funcionar__IdFun__4BAC3F29" Association="Self.FK__Funcionar__IdFun__4BAC3F29">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="FuncionarioSeduca" EntitySet="FuncionarioSeduca" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Municipio__IdPro__300424B4" Association="Self.FK__Municipio__IdPro__300424B4">
-            <End Role="Provincia" EntitySet="Provincia" />
-            <End Role="Municipio" EntitySet="Municipio" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PersonalC__IdPes__4E88ABD4" Association="Self.FK__PersonalC__IdPes__4E88ABD4">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="PersonalColegio" EntitySet="PersonalColegio" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -967,196 +966,196 @@ warning 6002: The table/view 'dbMinisterio.dbo.PersonalColegio' does not have a 
           <EntitySetMapping Name="Cargo">
             <EntityTypeMapping TypeName="dbMinisterioModel.Cargo">
               <MappingFragment StoreEntitySet="Cargo">
-                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Colegio">
             <EntityTypeMapping TypeName="dbMinisterioModel.Colegio">
               <MappingFragment StoreEntitySet="Colegio">
-                <ScalarProperty Name="IdColegio" ColumnName="IdColegio" />
-                <ScalarProperty Name="SIE" ColumnName="SIE" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Resolucion" ColumnName="Resolucion" />
-                <ScalarProperty Name="FechaResolucion" ColumnName="FechaResolucion" />
-                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
-                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
-                <ScalarProperty Name="IdDistrito" ColumnName="IdDistrito" />
-                <ScalarProperty Name="IdTipoColegio" ColumnName="IdTipoColegio" />
-                <ScalarProperty Name="IdLogo" ColumnName="IdLogo" />
-                <ScalarProperty Name="IdTurno" ColumnName="IdTurno" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdTurno" ColumnName="IdTurno" />
+                <ScalarProperty Name="IdLogo" ColumnName="IdLogo" />
+                <ScalarProperty Name="IdTipoColegio" ColumnName="IdTipoColegio" />
+                <ScalarProperty Name="IdDistrito" ColumnName="IdDistrito" />
+                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="FechaResolucion" ColumnName="FechaResolucion" />
+                <ScalarProperty Name="Resolucion" ColumnName="Resolucion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="SIE" ColumnName="SIE" />
+                <ScalarProperty Name="IdColegio" ColumnName="IdColegio" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CuentaUsuario">
             <EntityTypeMapping TypeName="dbMinisterioModel.CuentaUsuario">
               <MappingFragment StoreEntitySet="CuentaUsuario">
-                <ScalarProperty Name="IdCuentaUsuario" ColumnName="IdCuentaUsuario" />
-                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
-                <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
-                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="IdCuentaUsuario" ColumnName="IdCuentaUsuario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Departamento">
             <EntityTypeMapping TypeName="dbMinisterioModel.Departamento">
               <MappingFragment StoreEntitySet="Departamento">
-                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Diploma">
             <EntityTypeMapping TypeName="dbMinisterioModel.Diploma">
               <MappingFragment StoreEntitySet="Diploma">
-                <ScalarProperty Name="IdDiploma" ColumnName="IdDiploma" />
-                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
-                <ScalarProperty Name="IdEstudiante" ColumnName="IdEstudiante" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdEstudiante" ColumnName="IdEstudiante" />
+                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+                <ScalarProperty Name="IdDiploma" ColumnName="IdDiploma" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Distrito">
             <EntityTypeMapping TypeName="dbMinisterioModel.Distrito">
               <MappingFragment StoreEntitySet="Distrito">
-                <ScalarProperty Name="IdDistrito" ColumnName="IdDistrito" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="IdMunicipio" ColumnName="IdMunicipio" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdMunicipio" ColumnName="IdMunicipio" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdDistrito" ColumnName="IdDistrito" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Estudiante">
             <EntityTypeMapping TypeName="dbMinisterioModel.Estudiante">
               <MappingFragment StoreEntitySet="Estudiante">
-                <ScalarProperty Name="IdEstudiante" ColumnName="IdEstudiante" />
-                <ScalarProperty Name="RUDE" ColumnName="RUDE" />
-                <ScalarProperty Name="Promedio" ColumnName="Promedio" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Promedio" ColumnName="Promedio" />
+                <ScalarProperty Name="RUDE" ColumnName="RUDE" />
+                <ScalarProperty Name="IdEstudiante" ColumnName="IdEstudiante" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FuncionarioSeduca">
             <EntityTypeMapping TypeName="dbMinisterioModel.FuncionarioSeduca">
               <MappingFragment StoreEntitySet="FuncionarioSeduca">
-                <ScalarProperty Name="IdFuncionario" ColumnName="IdFuncionario" />
-                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+                <ScalarProperty Name="IdFuncionario" ColumnName="IdFuncionario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Gestion">
             <EntityTypeMapping TypeName="dbMinisterioModel.Gestion">
               <MappingFragment StoreEntitySet="Gestion">
-                <ScalarProperty Name="IdGestion" ColumnName="IdGestion" />
-                <ScalarProperty Name="Año" ColumnName="Año" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="IdGestion" ColumnName="IdGestion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Legalizacion">
             <EntityTypeMapping TypeName="dbMinisterioModel.Legalizacion">
               <MappingFragment StoreEntitySet="Legalizacion">
-                <ScalarProperty Name="IdLegalizacion" ColumnName="IdLegalizacion" />
-                <ScalarProperty Name="NroReciboBco" ColumnName="NroReciboBco" />
-                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
-                <ScalarProperty Name="FechaVerificacion" ColumnName="FechaVerificacion" />
-                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
-                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
-                <ScalarProperty Name="FirmaDigital" ColumnName="FirmaDigital" />
-                <ScalarProperty Name="IdEstudiante" ColumnName="IdEstudiante" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdEstudiante" ColumnName="IdEstudiante" />
+                <ScalarProperty Name="FirmaDigital" ColumnName="FirmaDigital" />
+                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="FechaVerificacion" ColumnName="FechaVerificacion" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+                <ScalarProperty Name="NroReciboBco" ColumnName="NroReciboBco" />
+                <ScalarProperty Name="IdLegalizacion" ColumnName="IdLegalizacion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Logo">
             <EntityTypeMapping TypeName="dbMinisterioModel.Logo">
               <MappingFragment StoreEntitySet="Logo">
-                <ScalarProperty Name="IdLogo" ColumnName="IdLogo" />
-                <ScalarProperty Name="Src" ColumnName="Src" />
-                <ScalarProperty Name="Ancho" ColumnName="Ancho" />
-                <ScalarProperty Name="Alto" ColumnName="Alto" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Alto" ColumnName="Alto" />
+                <ScalarProperty Name="Ancho" ColumnName="Ancho" />
+                <ScalarProperty Name="Src" ColumnName="Src" />
+                <ScalarProperty Name="IdLogo" ColumnName="IdLogo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Municipio">
             <EntityTypeMapping TypeName="dbMinisterioModel.Municipio">
               <MappingFragment StoreEntitySet="Municipio">
-                <ScalarProperty Name="IdMunicipio" ColumnName="IdMunicipio" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdMunicipio" ColumnName="IdMunicipio" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Persona">
             <EntityTypeMapping TypeName="dbMinisterioModel.Persona">
               <MappingFragment StoreEntitySet="Persona">
-                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
-                <ScalarProperty Name="CiPersona" ColumnName="CiPersona" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
-                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
                 <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CiPersona" ColumnName="CiPersona" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Privilegio">
             <EntityTypeMapping TypeName="dbMinisterioModel.Privilegio">
               <MappingFragment StoreEntitySet="Privilegio">
-                <ScalarProperty Name="IdPrivilegio" ColumnName="IdPrivilegio" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdPrivilegio" ColumnName="IdPrivilegio" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Provincia">
             <EntityTypeMapping TypeName="dbMinisterioModel.Provincia">
               <MappingFragment StoreEntitySet="Provincia">
-                <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TipoColegio">
             <EntityTypeMapping TypeName="dbMinisterioModel.TipoColegio">
               <MappingFragment StoreEntitySet="TipoColegio">
-                <ScalarProperty Name="IdTipoColegio" ColumnName="IdTipoColegio" />
-                <ScalarProperty Name="NombreTipoColegio" ColumnName="NombreTipoColegio" />
-                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+                <ScalarProperty Name="NombreTipoColegio" ColumnName="NombreTipoColegio" />
+                <ScalarProperty Name="IdTipoColegio" ColumnName="IdTipoColegio" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Turno">
             <EntityTypeMapping TypeName="dbMinisterioModel.Turno">
               <MappingFragment StoreEntitySet="Turno">
-                <ScalarProperty Name="IdTurno" ColumnName="IdTurno" />
-                <ScalarProperty Name="NombreTurno" ColumnName="NombreTurno" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="NombreTurno" ColumnName="NombreTurno" />
+                <ScalarProperty Name="IdTurno" ColumnName="IdTurno" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PersonalColegio">
             <EntityTypeMapping TypeName="dbMinisterioModel.PersonalColegio">
               <MappingFragment StoreEntitySet="PersonalColegio">
-                <ScalarProperty Name="IdPesonalColegio" ColumnName="IdPesonalColegio" />
-                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+                <ScalarProperty Name="IdPesonalColegio" ColumnName="IdPesonalColegio" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
