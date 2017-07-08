@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logica;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,14 +8,14 @@ using System.Web.UI.WebControls;
 
 namespace Presentacion
 {
-    public partial class wfEstudiante : System.Web.UI.Page
+    public partial class wfEstudiante : Page
     {
-        //instamciar laclase controlador
-        
+        //instamciar la clase controlador
+        controlEstudiante objControlEstudiante = new controlEstudiante();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
