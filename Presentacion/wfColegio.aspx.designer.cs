@@ -10,24 +10,24 @@
 namespace Presentacion {
     
     
-    public partial class wfEstudiante {
+    public partial class wfColegio1 {
         
         /// <summary>
-        /// gvEstudiantes control.
+        /// dgvColegio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvEstudiantes;
+        protected global::System.Web.UI.WebControls.GridView dgvColegio;
         
         /// <summary>
-        /// btnNuevoEstudiante control.
+        /// btnGuardarColegio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNuevoEstudiante;
+        protected global::System.Web.UI.WebControls.Button btnGuardarColegio;
     }
 }

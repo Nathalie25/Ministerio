@@ -15,7 +15,37 @@ namespace Presentacion
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            gvEstudiantes.DataSource = objControlEstudiante.ListarEstudiantes();
+            gvEstudiantes.DataBind();
+        }
+
+        protected void btnNuevoEstudiante_Click(object sender, EventArgs e)
+        {
+            string accion = "Nuevo";
+            Session["accion"] = accion;
+            Response.Redirect("wfEstudianteGestion");
+        }
+
+        protected void gvEstudiantes_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            int fila = e.NewSelectedIndex;
+            string accion = "Editar";
+            int codPersona = int.Parse(gvEstudiantes.Rows[fila].Cells[2].Text);
+
+            Session["accion"] = accion;
+            Session["codPersona"] = codPersona;
+            Response.Redirect("wfEstudianteGestion");
+        }
+
+        protected void gvEstudiantes_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int fila = e.RowIndex;
+            int codPersona = int.Parse(gvEstudiantes.Rows[fila].Cells[2].Text);
+
+            objControlEstudiante.ELiminar(codPersona);
+            gvEstudiantes.DataSource = objControlEstudiante.ListarEstudiantes();
+            gvEstudiantes.DataBind();
+
         }
     }
 }

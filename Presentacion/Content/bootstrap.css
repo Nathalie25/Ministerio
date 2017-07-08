@@ -82,6 +82,7 @@ abbr[title] {
 b,
 strong {
   font-weight: bold;
+    text-align: center;
 }
 
 dfn {
@@ -3946,6 +3947,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .nav-justified {
   width: 100%;
+    height: 260px;
 }
 
 .nav-justified > li {

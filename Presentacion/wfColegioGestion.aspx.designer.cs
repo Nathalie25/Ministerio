@@ -10,16 +10,25 @@
 namespace Presentacion {
     
     
-    public partial class wfEstudianteGestion {
+    public partial class wfColegioGestion {
         
         /// <summary>
-        /// lblId control.
+        /// lblID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblId;
+        protected global::System.Web.UI.WebControls.Label lblID;
+        
+        /// <summary>
+        /// txbSIE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txbSIE;
         
         /// <summary>
         /// txbNombre control.
@@ -31,40 +40,22 @@ namespace Presentacion {
         protected global::System.Web.UI.WebControls.TextBox txbNombre;
         
         /// <summary>
-        /// txbCI control.
+        /// txbResolucion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbCI;
+        protected global::System.Web.UI.WebControls.TextBox txbResolucion;
         
         /// <summary>
-        /// txbPaterno control.
+        /// txbFechaRes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbPaterno;
-        
-        /// <summary>
-        /// txbMaterno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbMaterno;
-        
-        /// <summary>
-        /// txbCorreo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbCorreo;
+        protected global::System.Web.UI.WebControls.TextBox txbFechaRes;
         
         /// <summary>
         /// txbDireccion control.
@@ -85,22 +76,49 @@ namespace Presentacion {
         protected global::System.Web.UI.WebControls.TextBox txbTelefono;
         
         /// <summary>
-        /// txbRude control.
+        /// txbDetalle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbRude;
+        protected global::System.Web.UI.WebControls.TextBox txbDetalle;
         
         /// <summary>
-        /// txbPromedio control.
+        /// ddlDistrito control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txbPromedio;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDistrito;
+        
+        /// <summary>
+        /// ddlTipo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipo;
+        
+        /// <summary>
+        /// fuLogo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuLogo;
+        
+        /// <summary>
+        /// ddlTurno control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTurno;
         
         /// <summary>
         /// btnGuardar control.

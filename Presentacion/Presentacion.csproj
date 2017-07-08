@@ -181,6 +181,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="wfColegio.aspx" />
+    <Content Include="wfColegioGestion.aspx" />
     <Content Include="wfEstudiante.aspx" />
     <Content Include="wfEstudianteGestion.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -388,6 +390,20 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="wfColegio.aspx.cs">
+      <DependentUpon>wfColegio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfColegio.aspx.designer.cs">
+      <DependentUpon>wfColegio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfColegioGestion.aspx.cs">
+      <DependentUpon>wfColegioGestion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfColegioGestion.aspx.designer.cs">
+      <DependentUpon>wfColegioGestion.aspx</DependentUpon>
     </Compile>
     <Compile Include="wfEstudiante.aspx.cs">
       <DependentUpon>wfEstudiante.aspx</DependentUpon>
